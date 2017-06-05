@@ -12,13 +12,26 @@ var app = express();
 // Specify the port.
 var PORT = 3000;
 
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// BodyParser makes it possible for our server to interpret data sent to it.
+// The code below is pretty standard.
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-var newFriends = [
-    { name: "Kristen", hobby: "musician", interestedIn: "Sky diving" },
-];
+// ================================================================================
+// ROUTER 
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
+// ================================================================================
+
+// Set Handlebars as the default templating engine.
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
+
+// var newFriends = [
+//     { name: "Kristen", hobby: "musician", interestedIn: "Sky diving" },
+// ];
 
 // Routes
 // app.get("/icecreams/:name", function(req, res) {
@@ -29,10 +42,12 @@ var newFriends = [
 //     res.render("index", lunches[1]);
 // });
 
-app.get("/icecreams/:name", function(req, res) {
-    res.render("all-icecreams", {
-        Icecream_List: icecreams,
-    });
-});
+// app.get("/icecreams/:name", function(req, res) {
+//     res.render("all-icecreams", {
+//         Icecream_List: icecreams,
+//     });
+// });
 
-app.listen(PORT);
+app.listen(PORT, function() {
+    console.log("App listening on PORT: " + PORT);
+});

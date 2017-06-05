@@ -1,0 +1,35 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "A full stack application which connects users with similar traits.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "inquirer": "^3.0.6",
+    "path": "^0.12.7",
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kndelacerda/FriendFinder.git"
+  },
+  "keywords": [
+    "friendfinder",
+    "friend-finder",
+    "friend",
+    "finder"
+  ],
+  "author": "Kristen De La Cerda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kndelacerda/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/kndelacerda/FriendFinder#readme"
+}
