@@ -1,8 +1,10 @@
 // Dependencies
 var express = require("express");
 var exphbs = require("express-handlebars");
-var prompt = require("prompt");
-var inquirer = require("inquirer");
+// var prompt = require("prompt");
+// var inquirer = require("inquirer");
+var bodyParser = require("body-parser");
+var path = require("path");
 
 // Create an instance of the express app.
 var app = express();
