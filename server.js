@@ -1,6 +1,6 @@
 // Dependencies
 var express = require("express");
-var exphbs = require("express-handlebars");
+// var exphbs = require("express-handlebars");
 // var prompt = require("prompt");
 // var inquirer = require("inquirer");
 var bodyParser = require("body-parser");
@@ -48,6 +48,6 @@ require("./app/routing/htmlRoutes")(app);
 //     });
 // });
 
-app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
+app.listen(process.env.PORT || 3000, function() {
+    console.log('App listening on PORT ' + process.env.PORT);
 });
