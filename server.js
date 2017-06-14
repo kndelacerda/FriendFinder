@@ -48,6 +48,6 @@ require("./app/routing/htmlRoutes")(app);
 //     });
 // });
 
-app.listen(process.env.PORT || 3000, function() {
-    console.log('App listening on PORT ' + process.env.PORT);
+app.listen(process.env.PORT, function() {
+    console.log('App listening on PORT ' + PORT);
 });
