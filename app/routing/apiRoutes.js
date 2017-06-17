@@ -29,7 +29,7 @@ module.exports = function(app) {
                 }
             };
             var bestMatch = differences.indexOf(lowest);
-            res.send(friends[bestMatch]);
+            res.send(frienddata[bestMatch]);
         };
         frienddata.push(newUser);
     });
@@ -39,7 +39,7 @@ module.exports = function(app) {
         while (curUserIndex < frienddata.length) {
             var totalDifference = 0;
             for (var i = 0; i < newUser.scores.length; i++) {
-                totalDifference += Math.abs(parseInt(friends[curUserIndex].scores[i]) - parseInt(newUser.scores[i]))
+                totalDifference += Math.abs(parseInt(frienddata[curUserIndex].scores[i]) - parseInt(newUser.scores[i]))
             }
             differences.push(totalDifference);
             curUserIndex++;
