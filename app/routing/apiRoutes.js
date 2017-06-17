@@ -18,10 +18,10 @@ module.exports = function(app) {
     app.post("/api/friends", function(req, res) {
         var newUser = req.body;
         var differences = [];
-        if (friends.length < 1) {
+        if (frienddata.length < 1) {
             console.log("Not enough users to proceed with calculation. Please try again.");
         } else {
-            compareFriends(friends, newUser, differences);
+            compareFriends(frienddata, newUser, differences);
             var lowest = differences[0];
             for (var i = 0; i < differences.length; i++) {
                 if (differences[i] < lowest) {
@@ -31,12 +31,12 @@ module.exports = function(app) {
             var bestMatch = differences.indexOf(lowest);
             res.send(friends[bestMatch]);
         };
-        friends.push(newUser);
+        frienddata.push(newUser);
     });
 
-    function compareFriends(friends, newUser, differences) {
+    function compareFriends(frienddata, newUser, differences) {
         var curUserIndex = 0;
-        while (curUserIndex < friends.length) {
+        while (curUserIndex < frienddata.length) {
             var totalDifference = 0;
             for (var i = 0; i < newUser.scores.length; i++) {
                 totalDifference += Math.abs(parseInt(friends[curUserIndex].scores[i]) - parseInt(newUser.scores[i]))
